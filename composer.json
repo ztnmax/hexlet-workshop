@@ -1,0 +1,34 @@
+{
+  "name": "hexlet/php-package",
+  "bin": ["bin/php-package"],
+  "type": "library",
+  "authors": [
+    {
+      "name": "Kirill Mokevnin",
+      "email": "mokevnin@gmail.com"
+    }
+  ],
+  "scripts": {
+    "phpcs": "phpcs",
+    "phpcbf": "phpcbf",
+    "phpunit": "phpunit",
+    "test": "phpunit tests"
+  },
+  "autoload": {
+    "psr-4": {
+      "Php\\Package\\": "src",
+      "Php\\Package\\Tests\\": "tests"
+    }
+  },
+  "require": {
+    "tightenco/collect": "^5.6",
+    "nesbot/carbon": "^1.26",
+    "danielstjules/stringy": "^3.1"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^4.0",
+    "phpunit/phpunit": "*",
+    "squizlabs/php_codesniffer": "*",
+    "codeclimate/php-test-reporter": "dev-master"
+  }
+}
