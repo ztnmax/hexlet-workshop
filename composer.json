@@ -1,11 +1,13 @@
 {
-  "name": "hexlet/php-package",
+  "name": "ztnmax/hexlet-workshop",
+
   "bin": ["bin/php-package"],
+  "description": "this is my hexlet workshop project",
   "type": "library",
   "authors": [
     {
-      "name": "Kirill Mokevnin",
-      "email": "mokevnin@gmail.com"
+      "name": "Maxim Zotkin",
+      "email": "ztnmax@gmail.com"
     }
   ],
   "scripts": {
@@ -16,8 +18,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Php\\Package\\": "src",
-      "Php\\Package\\Tests\\": "tests"
+      "ZtnMax\\HexletWorkshop\\": "src",
+      "ZtnMax\\HexletWorkshop\\Tests\\": "tests"
     }
   },
   "require": {

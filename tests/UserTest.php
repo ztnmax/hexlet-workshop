@@ -1,9 +1,9 @@
 <?php
 
-namespace Php\Package\Tests;
+namespace ZtnMax\HexletWorkshop\Tests;
 
 use \PHPUnit\Framework\TestCase;
-use \Php\Package\User;
+use \ZtnMax\HexletWorkshop\User;
 
 class UserTest extends TestCase
 {

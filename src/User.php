@@ -1,6 +1,6 @@
 <?php
 
-namespace Php\Package;
+namespace ZtnMax\HexletWorkshop;
 
 use Illuminate\Support\Collection;
 
