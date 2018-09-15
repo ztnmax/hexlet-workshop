@@ -9,7 +9,7 @@ use \ZtnMax\HexletWorkshop\GeoApp;
 use \ZtnMax\HexletWorkshop\IPApiService;
 
 $app = new GeoApp(new IPApiService());
-$geoData = $app->getDataByIP($ip);
+$geoData = $app->getDataByIP('127.0.0.1');
 
 echo implode(' ', [
   'country' => $geoData->getCountry(),
