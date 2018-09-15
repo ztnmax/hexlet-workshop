@@ -8,22 +8,25 @@
 
 namespace ZtnMax\HexletWorkshop;
 
-class IPApiService extends Service
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+
+class IPApiService
 {
     const URL = 'http://ip-api.com/json/';
+    private $httpClient;
+
+    public function __construct(ClientInterface $client = null)
+    {
+        $this->httpClient = $client ?? new Client();
+    }
 
     public function getDataByIP(string $ip): GeoData
     {
-        $resp = $this->query(['ip' => $ip]);
-        $data = $this->decode($resp);
+        $response = $this->httpClient->request('GET', self::URL . $ip);
+        $data = $this->decode($response->getBody());
         $this->validate($data);
         return new GeoData($data['country'], $data['city'], $data['zip']);
-    }
-
-    private function query(array $params)
-    {
-        $query = array_key_exists('ip', $params) ? $params['ip'] : '';
-        return file_get_contents(self::URL . $query);
     }
 
     private function decode($rowData)
