@@ -1,7 +1,7 @@
 {
   "name": "ztnmax/hexlet-workshop",
 
-  "bin": ["bin/app"],
+  "bin": ["bin/wheather"],
   "description": "this is my hexlet workshop project",
   "type": "library",
   "authors": [

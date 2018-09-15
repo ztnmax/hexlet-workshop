@@ -7,11 +7,12 @@ use \PHPUnit\Framework\TestCase,
     \GuzzleHttp\ClientInterface,
     \Psr\Http\Message\ResponseInterface;
 
-class UserTest extends TestCase
+class GeoAppTest extends TestCase
 {
     public function testGetDataByIp()
     {
-        $client = $this->createHttpClient('{"as":"AS21453 Flex Ltd.","city":"Noginsk","country":"Russia","countryCode":"RU","isp":"Flex Ltd","lat":55.8536,"lon":38.4411,"org":"Wireless network in Moscow region","query":"178.167.54.177","region":"MOS","regionName":"Moscow Oblast","status":"success","timezone":"Europe/Moscow","zip":"142400"}');
+        $response = file_get_contents(__DIR__.'/fixtures/ipApiResponse.json');
+        $client = $this->createHttpClient($response);
         $ip = '178.167.54.177';
         $expectedData = [
             'country' => 'Russia',
