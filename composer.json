@@ -1,7 +1,7 @@
 {
   "name": "ztnmax/hexlet-workshop",
 
-  "bin": ["bin/php-package"],
+  "bin": ["bin/app"],
   "description": "this is my hexlet workshop project",
   "type": "library",
   "authors": [
