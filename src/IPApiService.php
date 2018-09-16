@@ -16,7 +16,7 @@ class IPApiService
     const URL = 'http://ip-api.com/json/';
     private $httpClient;
 
-    public function __construct(ClientInterface $client = null)
+    public function __construct(?ClientInterface $client = null)
     {
         $this->httpClient = $client ?? new Client();
     }

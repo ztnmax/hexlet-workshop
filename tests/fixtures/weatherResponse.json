@@ -1,0 +1,23 @@
+{
+  "consolidated_weather": [
+    {
+      "the_temp": 20.645,
+      "wind_speed": 10.05
+    }
+  ],
+  "time": "2018-09-16T07:08:54.140818+01:00",
+  "sun_rise": "2018-09-16T06:36:43.756353+01:00",
+  "sun_set": "2018-09-16T19:12:58.774722+01:00",
+  "timezone_name": "LMT",
+  "parent": {
+    "title": "England",
+    "location_type": "Region / State / Province",
+    "woeid": 24554868,
+    "latt_long": "52.883560,-1.974060"
+  },
+  "title": "London",
+  "location_type": "City",
+  "woeid": 44418,
+  "latt_long": "51.506321,-0.12714",
+  "timezone": "Europe/London"
+}
