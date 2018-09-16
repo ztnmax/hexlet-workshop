@@ -38,6 +38,7 @@ class WeatherTest extends TestCase
 
     private function createHttpClient(): ClientInterface
     {
+        // todo заменить на последовательную подмену через моки
         $httpClient = $this->createMock(ClientInterface::class);
         $httpClient->method('request')->willReturnCallback(function($method, $url = '') {
             $body = $this->getFixtureByUrl($url);
