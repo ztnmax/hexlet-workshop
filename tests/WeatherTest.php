@@ -10,13 +10,12 @@ namespace ZtnMax\HexletWorkshop\Tests;
 
 use \PHPUnit\Framework\TestCase,
     \ZtnMax\HexletWorkshop\Weather\App,
-    \ZtnMax\HexletWorkshop\Weather\WeatherServiceFactory,
     \GuzzleHttp\ClientInterface,
     \Psr\Http\Message\ResponseInterface;
 
 class WeatherTest extends TestCase
 {
-    public function testFirstService()
+    public function testDefaultService()
     {
         $client = $this->createHttpClient();
         $city = 'london'; // todo брать значение из fixture
@@ -26,7 +25,10 @@ class WeatherTest extends TestCase
             'windSpeed' => '10.05' // todo брать значение из fixture
         ];
 
-        $service = new App(WeatherServiceFactory::FIRST_SERVICE, $client);
+        $service = new App([
+            'httpClient' => $client
+        ]);
+
         $data = $service->getDataByCity($city);
         $this->assertEquals($expectedData, [
             'temp' => $data->getTemp(),

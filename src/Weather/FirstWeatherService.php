@@ -11,7 +11,7 @@ namespace ZtnMax\HexletWorkshop\Weather;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 
-class FirstWeatherService
+class FirstWeatherService implements IWeatherService
 {
     const URL = 'https://www.metaweather.com/api/location/';
     private $httpClient;
@@ -21,13 +21,13 @@ class FirstWeatherService
         $this->httpClient = $client ?? new Client();
     }
 
-    public function getData(string $city): WeatherData
+    public function getData(array $params = []): WeatherData
     {
-        if (!$city === '') {
+        if (!array_key_exists('city', $params)) {
             throw new \Exception('City can\'t be empty');
         }
 
-        $response = $this->httpClient->request('GET', $this->getUrlByCity($city));
+        $response = $this->httpClient->request('GET', $this->getUrlByCity($params['city']));
         return $this->parse($response->getBody());
     }
 

@@ -4,27 +4,25 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use ZtnMax\HexletWorkshop\Weather\App,
-    ZtnMax\HexletWorkshop\Weather\WeatherServiceFactory,
     Docopt\Handler;
 
-$services = implode(', ', WeatherServiceFactory::getServices());
-$defaultService = WeatherServiceFactory::getDefaultService();
+
 $doc = <<<DOC
 Usage: {$argv[0]} [--service <service>] <city>
 
 Options:
   -h --help    show this
-  --service=<service>    one of [$services] [default: $defaultService]
+  --service=<service>    one of services
 
 DOC;
 
 $argvHandler = (new Handler())->handle($doc);
-$service = $argvHandler->args['--service'];
+$service = $argvHandler->args['--service'] ?? null;
 $city = $argvHandler->args['<city>'];
 
 try {
-    $app = new App($service);
-    $data = $app->getDataByCity($city);
+    $app = new App();
+    $data = $app->getDataByCity($city, $service);
     echo "$city: [temp: {$data->getTemp()}, windSpeed: {$data->getWindSpeed()}";
 } catch (Exception $e) {
     echo "Error: {$e->getMessage()}";
